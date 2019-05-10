@@ -1,5 +1,7 @@
 package logger;
 
+import loggable.Loggable;
+
 import java.io.PrintStream;
 
 public class ConsoleLogger implements Logger {
@@ -11,12 +13,13 @@ public class ConsoleLogger implements Logger {
         this.printStream = System.out;
     }
 
-    private CharSequence prefixedAppend(CharSequence charSequence) {
-        return String.format("%s : %s \n", toString(), LoggerUtil.coloredString(charSequence, LoggerUtil.Color.ANSI_RED ));
+    private CharSequence prefixedAppend(CharSequence charSequence, LoggerUtil.Color color) {
+        return String.format("%s : %s \n", toString(), LoggerUtil.coloredString(charSequence, color ));
     }
 
     @Override
-    public void log(CharSequence csq) {
-        printStream.append(prefixedAppend(csq));
+    public void log(Loggable loggable) {
+        LogColor annotation = loggable.getClass().getAnnotation(LogColor.class);
+        printStream.append(prefixedAppend(loggable.toString(), annotation.value()));
     }
 }

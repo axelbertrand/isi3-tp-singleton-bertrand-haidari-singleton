@@ -1,6 +1,8 @@
 package logger;
 
+import loggable.Loggable;
+
 public interface Logger {
 
-    void log(CharSequence message);
+    void log(Loggable loggable);
 }

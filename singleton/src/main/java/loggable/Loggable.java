@@ -1,14 +1,15 @@
 package loggable;
 
-import logger.ConsoleLogger;
 import logger.Logger;
+import org.springframework.beans.factory.annotation.Autowired;
 
 public abstract class Loggable {
 
-    private Logger logger = new ConsoleLogger();
+    @Autowired
+    private Logger logger;
 
     public void log() {
-        logger.log(toString());
+        logger.log(this);
     }
 
     public Logger getLogger() {
