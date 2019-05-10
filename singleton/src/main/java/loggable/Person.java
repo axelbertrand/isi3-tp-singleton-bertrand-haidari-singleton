@@ -7,11 +7,10 @@ import org.springframework.stereotype.Component;
 import static logger.LoggerUtil.Color.ANSI_BLUE;
 
 @LogColor(ANSI_BLUE)
-@Component()
+@Component
 @Scope("prototype")
 public class Person extends Loggable {
     private String firstName;
-
     private String lastName;
 
     public Person(String firstName, String lastName) {

@@ -13,7 +13,7 @@ public class FileLogger implements Logger {
     public void log(Loggable loggable) {
         try {
             FileWriter fileWriter = new FileWriter("tmp.txt", true);
-            fileWriter.write(loggable.toString() + "\n");
+            fileWriter.write(loggable + "\n");
             fileWriter.close();
         } catch (IOException e) {
             e.printStackTrace();

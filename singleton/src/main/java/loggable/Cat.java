@@ -5,7 +5,7 @@ import org.springframework.context.annotation.Scope;
 import org.springframework.stereotype.Component;
 
 @LogColor
-@Component()
+@Component
 @Scope("prototype")
 public class Cat extends Loggable {
 
