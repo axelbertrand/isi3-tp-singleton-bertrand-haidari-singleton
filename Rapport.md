@@ -59,7 +59,7 @@ Le paramètre `abstract` sert à préciser que la classe à instancier est abstr
 
 > A quoi fait référence `ref="logger"` dans la property ?
 
-//TODO
+`ref="logger"` est une référence vers un autre bean. Dans ce cas ci, `ref="logger"` fait référence à un bean avec l'id `logger`.
 
 ## Rappel - les annotation en Java
 

@@ -19,7 +19,10 @@ public class ConsoleLogger implements Logger {
 
     @Override
     public void log(Loggable loggable) {
-        LogColor annotation = loggable.getClass().getAnnotation(LogColor.class);
-        printStream.append(prefixedAppend(loggable.toString(), annotation.value()));
+        LoggerUtil.Color color = LoggerUtil.Color.ANSI_RESET;
+        if (loggable.getClass().isAnnotationPresent(LogColor.class)) {
+            color = loggable.getClass().getAnnotation(LogColor.class).value();
+        }
+        printStream.append(prefixedAppend(loggable.toString(), color));
     }
 }
